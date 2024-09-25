@@ -1,3 +1,3 @@
 # sgp-tod
 
-### Schema data and main scripts are attached, detailed organization will be released soon.
+### The schema data and main scripts have been uploaded, with a detailed organization structure to be released shortly.
