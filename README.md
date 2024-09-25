@@ -1,3 +1,3 @@
 # sgp-tod
 
-### Schema data is attached, code will be released soon.
+### Schema data and main scripts are attached, detailed organization will be released soon.
