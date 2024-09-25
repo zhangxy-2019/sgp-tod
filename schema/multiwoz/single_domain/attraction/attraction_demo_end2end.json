@@ -1,0 +1,32 @@
+[
+  {    
+    "task": "restaurant",
+    "belief_instructions": "belief instructions: restaurant name = pizza hut city, golden wok, etc.; food = dont care, chinese, mediterranean, british, etc.; pricerange = dontcare, cheap, moderate, expensive; area = dont care, centre, east, north, south, west ; booking_day = monday, tuesday, wednesday, thursday, friday, saturday, sunday; booking_people = 1,2,3,4,5,6,7; booking_time = 12:15, 13:30, etc",
+    "new_rule": "task rules: (1) user : i'm looking for a restaurant in the [value_area] and serve [value_food] food. action: restaurant (inform (name, area, price), require(more)) system : [restaurant_name] restaurant in the [value_area] part of town and in the [value_pricerange] price range . would you like more information for them ?[eos] (2) user: what is the address? action: restaurant (inform (address), require (more)) system: their address is [restaurant_address]. do you need anything else?[eos] (3) user : can you book the table for [value_count] people at [value_time] on [value_day] please? action: restaurant (booking (name, day, time), inform (reference)) system : i have made a reservation for you at the [restaurant_name] on [value_day] at [value_time] for [value_count] people. your reference number is [restaurant_reference].[eos] (4) please give me the reference number. action: restaurant (booking (name), inform (reference)) system : booking was successful at [restaurant_name]. reference number is [restaurant_reference].[eos] (5) user: that covers all my needs. thanks. action: restaurant (general (bye)) system: you are welcome, goodbye.",
+    "history": [
+      "user : i am looking for a restaurant in the west that serves italian food.",
+      "system : there are [value_count] restaurant -s that meet your requirement -s . [restaurant_name] is in the [value_pricerange] price range and [restaurant_name] is in the [value_pricerange] range .",
+      "user : can i get the address for prezzo please?"
+    ],
+    "belief": "SQL: select * from restaurant where food = italian ; area = west",
+    "explanation_1": "action: restaurant (inform (name, address), require (more))",
+    "reply": "system : the address for [restaurant_name] is [restaurant_address] . is there anything else i can help you with ?",
+    "name": "SNG0570.json",
+    "dp": "dp : booking ( book ( ref = a5fgtjtz ) )"
+  },
+  {
+    "task": "hotel",
+    "belief_instructions": "belief instructions: hotel name = huntingdon marriott hotel, a and b guest house, etc.; pricerange = dont care, cheap, moderate, expensive; area = dont care, centre, east, north, south, west; stars = dont care, 0,1,2,3,4,5; parking = dont care, yes, no; internet = dont care, yes, no; type = hotel, guest house ; booking_day = monday, tuesday, etc.; booking_people = 1,2,3,4,5,6,etc. ; booking_stay = 1,2,3,4,etc.",
+    "new_rule": "(1) user: i am looking for a guesthouse/hotel. action: hotel (request (area)) system: what area of town would you like to stay ?[eos] (2) user: i want information on [hotel_name]. action: hotel(inform(name, type, area, price, internet, parking, stars), require(more)) system : [hotel_name] is a guesthouse/hotel in the [value_area] part of town , it is [value_pricerange] -ly priced with [value_count] stars , internet and parking . would you like more information ? [eos] (3) user: can i get the phone number? action: hotel (inform (name, phone), require (more)) system: the [hotel_name]'s phone number is [hotel_phone]. is there anything else i can help with ? [eos] (4) user: can i get the postcode? action: hotel (inform (name, postcode), require (more)) system: the postcode of [hotel_name] is [hotel_phone]. is there anything else i can help with ? [eos] (5) user: what is their address? action: hotel (inform (name, address), require (more)) system: [restaurant_name] is located at [restaurant_address]. would you like to make a reservation? [eos]",
+    "history": [
+      "user : hi, i'd like to find out about the hobsons house hotel.",
+      "system : [hotel_name] is a guesthouse in the [value_area] part of town , it is [value_pricerange] -ly priced with [value_count] stars , internet and parking . would you like more information ?",
+      "user : if you have it, can i get their phone number and postcode please."
+    ],
+    "belief": "SQL: select * from hotel where name = hobsons house",
+    "reply": "system : sure thing . the [hotel_name] can be reached at [hotel_phone] . their postcode is [hotel_postcode] . did you need assistance booking a reservation there ?",
+    "name": "SNG0863.json",
+    "dp": "dp : booking ( inform ( none = none ) )",
+    "explanation_1": "action: hotel (inform (name, phone, postcode), require (booking))"
+  }
+]

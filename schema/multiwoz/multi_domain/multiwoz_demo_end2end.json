@@ -1,0 +1,21 @@
+[
+  {
+    "history": [
+      "user : would you be able to tell me whether there are any multiple sports venues in the center of town?",
+      "system : there no place -s that match those criteria , but there is [value_count] in [value_area] .",
+      "user : actually, let's try looking for a college instead and still in the centre of town.",
+      "system : there are [value_count] colleges in the center of town . most of them are free . [attraction_name] on [attraction_address] is beautiful . would you like the phone number ?",
+      "user : yes, may i please get the phone number and the postcode as well?",
+      "system : yes , the phone number is [attraction_phone] and the post code is [attraction_postcode] .",
+      "user : i'm also looking for somewhere to dine.  can you help with that?",
+      "system : absolutely , what kind of food would you like ?",
+      "user : i want some portuguese food in the same area.",
+      "system : okay i have [value_count] in the center of town called [restaurant_name] city center . would you like a reservation or their telephone number ?",
+      "user : i'd like you to reserve a table for me at 15:15 on friday for 1 person."
+    ],
+    "belief": "SQL: select * from restaurant where food = portuguese ; name = nandos city centre ; booking_day = friday ; booking_people = 1 ; booking_time = 15:15",
+    "reply": "system : your table for [value_count] has been booked . reference number is [restaurant_reference] . will you need a taxi ?",
+    "name": "PMUL2172.json",
+    "dp": "dp : general ( reqmore ( none = none ) )"
+  }
+]

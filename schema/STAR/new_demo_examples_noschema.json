@@ -1,0 +1,209 @@
+[
+  {
+    "domains": "ride",
+    "tasks": "ride_book",
+    "instructions": "wizard needs to request the user's name, departure location, arrival location before querying.",
+    "task_rules": "(1) 37:ride_ask_confirm_booking[eos] (2) 11:query_book[eos] (3) 140:ride_inform_search_criteria[eos] (4) 38:ride_confirm_booking[eos] ",
+    "dialog_examples": "history: [user] yes please. [sep] [wizard] [query] customername = \"alexis\" ; departurelocation = \"5th and main\" ; arrivallocation = \"airport\" ; requesttype = \"book\" ; [sep] [knowledgebase] [result] apiname = ride_book ; message = ride booked. ; [sep]",
+    "extra_ex": "knowledge result apiname = ride_book; message = ride booked. thus, the answer is",
+    "explanation": "action label: 38:ride_confirm_booking [eos]"
+  },
+  {
+    "domains": "ride",
+    "tasks": "ride_change",
+    "instructions": "wizard needs to request the user's name, ride id, change description before querying.",
+    "task_rules": "(1) 2:ask_name[eos] (2) 123:ride_ask_booking_number[eos] (3) 127:ride_ask_change[eos] (4) 6:query[eos] ",
+    "dialog_examples": "history: [user] i'm ben! [sep] [wizard] can i get your booking id, please? [sep] [user] 124 [sep]",
+    "extra_ex": "user's name is ben, booking id is 124. thus, the answer is",
+    "explanation": "action label: 127:ride_ask_change [eos]"
+  },
+  {
+    "domains": "ride",
+    "tasks": "ride_status",
+    "instructions": "wizard needs to request the user's name and ride ID before querying.",
+    "task_rules": "(1) 2:ask_name[eos] (2) 123:ride_ask_booking_number[eos] (3) 6:query[eos] (4) 6:query[eos] ",
+    "dialog_examples": "history: [user] hi my ride id is 562. name angela. where is my ride [SEP]",
+    "extra_ex": "user's name is angela, ride id is 562. thus, the answer is",
+    "explanation": "(4) [user] i'm [NAME], my ride id is [NUMBER] [SEP] action label: 6:query [eos]"
+  },
+  {
+    "domains": "trip",
+    "tasks": "trip_directions",
+    "instructions": "wizard needs to request the travek mode (drive, walk, or use public transit), departure location, arrival location, departure time before querying.",
+    "task_rules": "(1) 72:trip_inform_simple_step_ask_proceed[eos] (2) 72:trip_inform_simple_step_ask_proceed[eos] (3) 72:trip_inform_simple_step_ask_proceed[eos] (4) 105:trip_inform_detailed_step[eos] (5) 82:trip_inform_last_step_and_done[eos] ",
+    "dialog_examples": "history: [user] go ahead [sep] [wizard] after 5 kilometers, turn right on castro st. can i proceed or do you require more detailed instructions? [sep] [user] go ahead [sep]",
+    "extra_ex": "user asks to go ahead / proceed. thus, the answer is",
+    "explanation": "action label: 72:trip_inform_simple_step_ask_proceed[eos]"
+  },
+  {
+    "domains": "doctor",
+    "tasks": "doctor_schedule",
+    "instructions": "wizard needs to request the user's name, doctor's name, day, start time, symptoms before querying.",
+    "task_rules": "(1) 2:ask_name[eos] (2) 64:doctor_ask_doctor_name[eos] (3) 65:doctor_ask_day[eos] (4) 120:doctor_ask_start_time[eos] (5) 66:doctor_ask_symptoms[eos] ",
+    "dialog_examples": "history: [user] ben [SEP] [wizard] what day of the week would you like to schedule the appointment for? [SEP] [user] saturday at 8pm if possible please. [SEP]",
+    "extra_ex": "user's name is ben, appointment day is saturday, start time is 8pm. thus, the answer is",
+    "explanation": "(5) [user] [TIME] [SEP] action label: 66:doctor_ask_symptoms[eos]"
+  },
+  {
+    "domains": "weather",
+    "tasks": "weather",
+    "instructions": "wizard needs to request the day (optinally city/location) before querying.",
+    "task_rules": "(1) 85:weather_ask_day[eos] (2) 5:weather_ask_location[eos] (3) 6:query[eos] (4) 7:weather_inform_forecast[eos] ",
+    "dialog_examples": "history: [user] i want to know the weather for tuesday. [SEP] [wizard] for what location would you like the weather forecast? [SEP] [user] chicago [SEP]",
+    "extra_ex": "weather day is tuesday, city/location is chicago. thus, the answer is",
+    "explanation": "(3) [user] [CITY] [SEP] action label: 6:query[eos]"
+  },
+  {
+    "domains": "party",
+    "tasks": "party_plan",
+    "instructions": "wizard needs to request the venue name, host name, day, start time, number of guests (optinally food request, drinks request) before querying.",
+    "task_rules": "(1) 8:party_ask_number_of_guests[eos] (2) 99:party_inform_food_drink_criteria[eos] (3) 9:query_check[eos] (4) 9:query_check[eos] (5) 9:query_check[eos] ",
+    "dialog_examples": "history: [user] i am hosting as alexis and the southside venue for thursday at 3pm would be great. [SEP] [wizard] how many people would you like to invite? [SEP] [user] well atleast 20 guest will be coming and we like vegetarian meals only, please. [SEP]",
+    "extra_ex": "venue name is the southside venue, host name is alexis, day is thursday, start time is 3pm, number of guests is 20, food request is vegetarian meals. thus, the answer is",
+    "explanation": "(4) [user] For food I would like [MESSAGE] [SEP] action label: 9:query_check[eos]"
+  },
+  {
+    "domains": "doctor",
+    "tasks": "doctor_followup",
+    "instructions": "wizard needs to request the user's name and doctor name before querying.",
+    "task_rules": "(1) 2:ask_name[eos] (2) 64:doctor_ask_doctor_name[eos] (3) 6:query[eos] (4) 104:doctor_inform_doctors_instructions[eos] ",
+    "dialog_examples": "history: [user] i just finished up an appointment with dr. alexis and i need to check in because i don't think i totally understand everyting. [SEP] [wizard] could i get your name, please? [SEP] [user] yes my name is angela. [SEP]",
+    "extra_ex": "user's name is angela, doctor's name is dr.alexis. thus, the answer is",
+    "explanation": "(3)[user] My doctor's name is [NAME] [SEP] action label: 6:query[eos]"
+  },
+  {
+    "domains": "spaceship",
+    "tasks": "spaceship_access_codes",
+    "instructions": "wizard needs to request user's name, user's rank, code, code type before querying.",
+    "task_rules": "(1) 94:spaceship_ask_code[eos] (2) 95:spaceship_ask_code_type[eos] (3) 6:query[eos] (4) 6:query[eos] ",
+    "dialog_examples": "history: [User] I am the Bartender [Wizard] Please enter the code. [User] 031431[SEP]",
+    "extra_ex": "user's rank is bartender, code is 031431. thus, the answer is",
+    "explanation": "(2) [user] [NUMBER] [SEP] action label: 95:spaceship_ask_code_type[eos]"
+  },
+  {
+    "domains": "none",
+    "tasks": "trivia",
+    "instructions": "wizard needs to request the question number to start from, before querying.",
+    "task_rules": "(1) 34:trivia_ask_question[eos] (2) 55:trivia_inform_answer_correct_ask_next[eos] (3) 33:trivia_inform_answer_incorrect_ask_next[eos] (4) 35:trivia_inform_answer_2_ask_next[eos] ",
+    "dialog_examples": "history: [knowledgebase] [result] apiname = trivia ; answer = snail ; question = a ____ takes 33 hours to crawl one mile ; [SEP] [wizard] a ____ takes 33 hours to crawl one mile [SEP] [user] turtle [SEP]",
+    "extra_ex": "the claim that a turtle tasks 33 hours to crawl one mile is wrong. thus, the answer is",
+    "explanation": "(3) [user] My answer is [WRONG_ANSWER] [SEP] action label: 33:trivia_inform_answer_incorrect_ask_next[eos]"
+  },
+  {
+    "domains": "meeting",
+    "tasks": "meeting_schedule",
+    "instructions": "wizard needs to request the user's name, meeting guest name, day, start time, end time (optionally meeting reason) before querying.",
+    "task_rules": "(1) 155:meeting_ask_start_time[eos] (2) 61:meeting_ask_end_time[eos] (3) 108:meeting_ask_reason[eos] (4) 6:query[eos] ",
+    "dialog_examples": "history: [user] it should only be about 2 hours, so around 4 pm. [SEP] [wizard] would you like to note down an optional reason for the meeting? [SEP] [user] yes, put it down as \"weekly scrum planning\" [SEP]",
+    "extra_ex": "meeting end time is around 4pm, meeting reason is weekly scrum planning. thus, the answer is",
+    "explanation": "(4) [user] The reason for the meeting is [MESSAGE] [SEP] action label: 6:query[eos]"
+  },
+  {
+    "domains": "hotel",
+    "tasks": "hotel_book",
+    "instructions": "wizard needs to request the user's name, hotel name, start date, end date, and customer request before querying.",
+    "task_rules": "(1) 2:ask_name[eos] (2) 22:hotel_ask_hotel[eos] (3) 73:hotel_ask_date_from[eos] (4) 118:hotel_ask_date_to[eos] ",
+    "dialog_examples": "history: [user] hi [SEP] [wizard] hello, how can i help? [SEP] [user] i would like to reserve a room at the ond town inn [SEP]",
+    "extra_ex": "hotel name is ond town inn, user asks for a reservation. thus, the answer is",
+    "explanation": "(1) [user] I'd like to make a reservation at a hotel. [SEP] action label: 2:ask_name[eos]"
+  },
+  {
+    "domains": "restaurant",
+    "tasks": "restaurant_book",
+    "instructions": "wizard needs to request the user's name, restaurant name, time and the number of people before querying.",
+    "task_rules": "(1) 2:ask_name[eos] (2) 17:restaurant_ask_restaurant[eos] (3) 44:restaurant_ask_time[eos] (4) 18:restaurant_ask_size[eos] (5) 9:query_check[eos] ",
+    "dialog_examples": "history: [user] hello, i'd like to make a reservation at the porch for 37 people at 12 pm. my name is angela. [SEP]",
+    "extra_ex": "user's name is angela, restaurant name is porch, time is 12pm, number of people is 37. thus, the answer is",
+    "explanation": "(5) [user] [NUMBER] people [SEP] action label: 9:query_check[eos]"
+  },
+  {
+    "domains": "restaurant",
+    "tasks": "restaurant_search",
+    "instructions": "wizard needs to request the name, location, food type, cost, rating, whether delivery, whether taking reservations before querying.",
+    "task_rules": "(1) 17:restaurant_ask_restaurant[eos] (2) 131:restaurant_ask_location[eos] (3) 130:restaurant_ask_food_type[eos] (4) 132:restaurant_ask_delivery[eos] (5) 137:restaurant_ask_rating[eos] ",
+    "dialog_examples": "history: [user] andrew [SEP] [wizard] what cuisine are you looking for? [SEP] [user] i am open to anything [SEP]",
+    "extra_ex": "user's name is andrew, food type is anything. thus, the answer is",
+    "explanation": "(5) [user] i am looking for [FOOD_TYPE] [SEP] action label: 137:restaurant_ask_rating[eos]"
+  },
+  {
+    "domains": "apartment",
+    "tasks": "apartment_schedule",
+    "instructions": "wizard needs to request the user's name, apartment name, day, start time (hour), whether application fee is paid (optionally custom message) before querying.",
+    "task_rules": "(1) 47:apartment_ask_application_fee_paid[eos] (2) 9:query_check[eos] (3) 154:apartment_ask_custom_message[eos] (4) 9:query_check[eos] ",
+    "dialog_examples": "history: [user] 11 am would be good [SEP] [wizard] have you already paid the application fee for the apartment? [SEP] [user] no not yet [SEP]",
+    "extra_ex": "start time is 11 am, user has not paid the application fee yet. thus, the answer is",
+    "explanation": "(2) [user] i paid the fee already./not yet. [SEP] action label: 9:query_check[eos]"
+  },
+  {
+    "domains": "party",
+    "tasks": "party_rsvp",
+    "instructions": "wizard needs to request the venue name, host name, guest name, arrival time, the number of guests with them, and whether needing parking (optionally dietary restrictions) before querying.",
+    "task_rules": "(1) 1:party_ask_venue[eos] (2) 87:party_ask_host[eos] (3) 2:ask_name[eos] (4) 88:party_ask_arrival_time[eos] ",
+    "dialog_examples": "history: [user] i would like to rsvp to a party [SEP] [wizard] at what venue is the party taking place? [SEP] [user] the venue is southside venue [SEP]",
+    "extra_ex": "venue name is southside venue. thus, the answer is",
+    "explanation": "(2) [user] [VENUE_NAME] [SEP] action label: 87:party_ask_host[eos]"
+  },
+  {
+    "domains": "plane",
+    "tasks": "plane_search",
+    "instructions": "wizard needs to request the departure city, arrival city and date sequentially (optionally airline, class, price, duration) before querying.",
+    "task_rules": "(1) 153:plane_ask_more_questions[eos] (2) 6:query[eos] (3) 13:anything_else[eos] (4) 30:goodbye_2[eos] ",
+    "dialog_examples": "history: [user] i guess i'll take it. book the business class seat please. [SEP] [wizard] is there anything else that i can do for you? [SEP] [user] no, that's it. thank you. [SEP]",
+    "extra_ex": "user informs nothing else, thus, the answer is",
+    "explanation": "(4) [user] Goodbye/ no, that's it. thanks [SEP] action label: 30:goodbye_2[eos]"
+  },
+  {
+    "domains": "bank",
+    "tasks": "bank_balance",
+    "instructions": "wizard needs to request the user's name, account number, PIN sequentially before querying.",
+    "task_rules": "(1) 0:hello[eos] (2) 2:ask_name[eos] (3) 40:bank_ask_account_number[eos] (4) 42:bank_ask_pin[eos] ",
+    "dialog_examples": "history: [user] hello, can you help me check my balance? my name is brian white. [SEP]",
+    "extra_ex": "user's name is brian white. thus, the answer is",
+    "explanation": "(3) [user] My name is [NAME] [SEP] action label: 40:bank_ask_account_number[eos]"
+  },
+  {
+    "domains": "hotel",
+    "tasks": "hotel_search",
+    "instructions": "wizard needs to collect the hotel name, its location, price and rating sequentially from the user before conducting database querying.",
+    "task_rules": "(1) 83:hotel_provide_search_result[eos] (2) 98:hotel_inform_name[eos] (3) 138:hotel_inform_location[eos] (4) 111:hotel_inform_rating[eos] ",
+    "dialog_examples": "history : [knowledgebase] [result] apiname = hotel_search ; averagerating = 5 ; cost = expensive ; location = center ; name = hyatt hotel ; service = true ; servicestarthour = 3 am ; servicestophour = 6 pm ; takesreservations = false ; id = 509 ; [sep] [wizard] the 'hyatt hotel' is in the expensive price range [sep] [user] perfect. what is it's rating? [sep]",
+    "extra_ex": "user asks about rating. thus, the answer is",
+    "explanation": "(4) [user] What is the rating of the hotel? [SEP] action label: 111:hotel_inform_rating[eos]"
+  },
+  {
+    "domains": "hotel",
+    "tasks": "hotel_service_request",
+    "instructions": "wizard needs to collect the hotel name, user's name, room number, service request and service time sequentially from the user before conducting database querying.",
+    "task_rules": "(1) 24:hotel_ask_time[eos] (2) 6:query[eos] (3) 25:hotel_inform_service_request_successful[eos] (4) 51:hotel_inform_service_request_failed[eos] ",
+    "dialog_examples": "history :[user] oops, forgot to mention that earlier - the shadyside inn [SEP] [wizard] right, please let us know your request now. [SEP] [user] yeah, i want to go ahead and schedule my lunch order - for 11am. cheeseburger, fries and two beers please [SEP]",
+    "extra_ex": "hotel name is the shadyside inn, service request is lunch order, service time is 11am. thus, the answer is ",
+    "explanation": "(2) [user] [TIME] [SEP] action label: 6:query[eos]"
+  },
+  {
+    "domains": "bank",
+    "tasks": "bank_fraud_report",
+    "instructions": "wizard needs to request the user's name, account number, PIN sequentially before querying.",
+    "task_rules": "(1) 0:hello[eos] (2) 2:ask_name[eos] (3) 40:bank_ask_account_number[eos] (4) 42:bank_ask_pin[eos] ",
+    "dialog_examples": "[user] i was reviewing my online account information and somehow, $500 has been transferred from my account without my authorization. i don't even know this person! [SEP]",
+    "extra_ex": "user describes a fraud transaction. thus, the answer is",
+    "explanation": "(2) [user] I'd like to submit a fraud report. [SEP] action label: 2:ask_name[eos]"
+  },
+  {
+    "domains": "plane",
+    "tasks": "plane_book",
+    "instructions": "wizard needs to collect the user's name, flight id sequentially from the user before conducting database querying.",
+    "task_rules": "(1) 2:ask_name[eos] (2) 68:plane_ask_flight_id[eos] (3) 9:query_check[eos] (4) 9:query_check[eos] ",
+    "dialog_examples": "history: [user] i would like to reserve flight id 631 [SEP] [wizard] may i have your name, please? [SEP] [user] mark [SEP]",
+    "extra_ex": "user's name is mark, flight id is 631. thus, the answer is",
+    "explanation": "(4) [user] my name is [NAME], My flight ID is [NUMBER] [SEP] action label: 9:query_check[eos]"
+  },
+  {
+    "domains": "apartment",
+    "tasks": "apartment_search",
+    "instructions": "wizard needs to request the number of bedrooms, the budget/the prefered price, the prefered floor, whether requiring the balcony /the balcony side, elavator and nearbyPOIs sequentially before querying.",
+    "task_rules": "(1) 0:hello[eos] (2) 112:apartment_ask_num_bedrooms[eos] (3) 144:apartment_ask_price[eos] (4) 152:apartment_ask_floor[eos] ",
+    "dialog_examples": "history: [user] hello i am looking for an apartment to rent. can you help me? [SEP]",
+    "extra_ex": "user needs to find an apartment. thus, the answer is",
+    "explanation": "(2) [user] I need to find an apartment. [SEP] action label: 112:apartment_ask_num_bedrooms[eos]"
+  }
+]

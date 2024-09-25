@@ -1,0 +1,33 @@
+[
+  {
+    "task": "attraction",
+    "belief_instructions": "belief instructions: attraction type = swimmingpool, theatre, architecture, museum, nightclub, boat, park, college, concerthall, entertainment, multiple sports, cinema; name = the cherry hinton village centre, soul tree nightclub, etc.; area = dont care, centre, east, north, south, west",
+    "new_rule": "task rules: (1) user: i'm looking for information on [attraction_name]. action: attraction (inform (name, address, area, entrance fee)) system: [attraction_name] is in the [value_area] and their address is [attraction_address], the entrance fee is [value_count] pounds. [eos] (2) user: what is the phone number? action: attraction (inform (phone), require (more)) system: their phone number is [attraction_phone]. is there anything else i can do for you? [eos] (3) user: i need the area/location and the postcode. action: attraction (inform (area, postcode)) system: the [attraction_name] is in the [value_area], their postal code is [attraction_postcode] [eos] (4) user: that is all i need today. thank you! action: attraction (general (bye)) system: you are welcome , thank you for calling the [value_place] towninfo [value_area]. have a great day. [eos]",
+    "history": [
+      "user : hello, i'm looking for the museum of classical archaeology, could you tell me more about it?",
+      "system : certainly , the [attraction_name] is located at [attraction_address] and has free entrance , phone [attraction_phone] . do you also need the postcode ?",
+      "user : yes, i'd like that. thank you so much!"
+    ],
+    "kb": "<kb> attraction one </kb>",
+    "belief": "SQL: select * from attraction where name = museum of classical archaeology",
+    "explanation_1": "action: attraction (inform (postcode), require (more))",
+    "reply": "system : the postcode for the [attraction_name] is [attraction_postcode] . is there anything else i can help you with ?",
+    "name": "sng1097.json",
+    "dp": "<dp>general ( reqmore ( none = none ) )"
+  },
+  {    
+    "task": "restaurant",
+    "belief_instructions": "belief instructions: restaurant name = pizza hut city, golden wok, etc.; food = dont care, chinese, mediterranean, british, etc.; pricerange = dontcare, cheap, moderate, expensive; area = dont care, centre, east, north, south, west ; booking_day = monday, tuesday, wednesday, thursday, friday, saturday, sunday; booking_people = 1,2,3,4,5,6,7; booking_time = 12:15, 13:30, etc",
+    "new_rule": "task rules: (1) user : i'm looking for a restaurant in the [value_area] and serve [value_food] food. action: restaurant (inform (name, area, price), require(more)) system : [restaurant_name] restaurant in the [value_area] part of town and in the [value_pricerange] price range . would you like more information for them ?[eos] (2) user: what is the address? action: restaurant (inform (address), require (more)) system: their address is [restaurant_address]. do you need anything else? [eos] (3) user : can you book the table for [value_count] people at [value_time] on [value_day] please? action: restaurant (booking (name, day, time), inform (reference)) system : i have made a reservation for you at the [restaurant_name] on [value_day] at [value_time] for [value_count] people. your reference number is [restaurant_reference]. (4) please give me the reference number. action: restaurant (booking (name), inform (reference)) system : booking was successful at [restaurant_name]. reference number is [restaurant_reference]. (5) user: that covers all my needs. thanks. action: restaurant (general (bye)) system: you are welcome, goodbye.",
+    "history": [
+      "user : i am looking for a restaurant in the west that serves italian food.",
+      "system : there are [value_count] restaurant -s that meet your requirement -s . [restaurant_name] is in the [value_pricerange] price range and [restaurant_name] is in the [value_pricerange] range .",
+      "user : can i get the address for prezzo please?"
+    ],
+    "belief": "SQL: select * from restaurant where food = italian ; area = west",
+    "explanation_1": "action: restaurant (inform (name, address), require (more))",
+    "reply": "system : the address for [restaurant_name] is [restaurant_address] . is there anything else i can help you with ?",
+    "name": "SNG0570.json",
+    "dp": "dp : booking ( book ( ref = a5fgtjtz ) )"
+  }
+]

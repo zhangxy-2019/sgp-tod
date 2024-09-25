@@ -1,0 +1,51 @@
+{
+    "task": "trivia",
+    "replies": {
+        "user_hello": "Hello.",
+        "hello": "Hello, how can I help?",
+        "user_trivia_ask_trivia": "I'd like to play trivia",
+        "trivia_ask_question_number": "At what question would you like to start?",
+        "user_trivia_inform_question_number": "I would like to start on question [NUMBER]",
+        "query": "[QUERY]",
+        "db_inform_question": "[RESULT] APIName = trivia ; Answer = [ANSWER] ; Question = [QUESTION] ; ",
+        "db_inform_no_result": "[RESULT] no result",
+        "trivia_ask_question": "{question:s}",
+        "user_trivia_answer": "My answer is [ANSWER]",
+        "trivia_inform_answer_correct_ask_next": "Your answer was correct! Great job! Would you like to continue playing?",
+        "user_trivia_answer_wrong": "My answer is [WRONG_ANSWER]",
+        "trivia_inform_answer_incorrect_ask_next": "Unfortunately your answer was wrong. '{answer:s}' would have been correct.\nWould you like to continue playing?",
+        "user_trivia_answer_idk": "I don't know",
+        "trivia_inform_answer_2_ask_next": "The answer to this question would have been '{answer:s}'. Would you like to continue playing?",
+        "user_trivia_next_question": "Ok, next question./yes.",
+        "user_trivia_thanks": "Thanks",
+        "anything_else": "Is there anything else that I can do for you?",
+        "user_trivia_goodbye": "Goodbye",
+        "trivia_bye": "Nice playing with you, bye!",
+        "trivia_inform_nothing_found": "Unfortunately there are no questions that match your search. Would you like to change any of your criteria?",
+        "out_of_scope": "I am sorry, I don't quite understand what you mean. I am only able to play trivia with you."
+    },
+    "graph": {
+        "user_hello": "hello",
+        "user_trivia_ask_trivia": "trivia_ask_question_number",
+        "user_trivia_inform_question_number": "query",
+        "db_inform_question": "trivia_ask_question",
+        "user_trivia_answer": "trivia_inform_answer_correct_ask_next",
+        "user_trivia_answer_wrong": "trivia_inform_answer_incorrect_ask_next",
+        "user_trivia_answer_idk": "trivia_inform_answer_2_ask_next",
+        "user_trivia_next_question": "query",
+        "db_inform_no_result": "query",
+        "user_trivia_thanks": "anything_else",
+        "user_trivia_goodbye": "trivia_bye"
+    },
+    "r_graph": {
+        "user_trivia_ask_trivia": "hello",
+        "user_trivia_inform_question_number": "trivia_ask_question_number",
+        "user_trivia_answer": "trivia_ask_question",
+        "user_trivia_answer_wrong": "trivia_ask_question",
+        "user_trivia_answer_idk": "trivia_ask_question",
+        "user_trivia_next_question": "trivia_inform_answer_correct_ask_next",
+        "user_trivia_thanks": "trivia_inform_answer_correct_ask_next",
+        "user_trivia_goodbye": "anything_else",
+        "db_inform_question": "query"
+    }
+}

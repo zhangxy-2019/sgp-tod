@@ -1,0 +1,46 @@
+{
+    "task": "ride_change",
+    "replies": {
+        "user_hello": "Hello.",
+        "hello": "Hello, how can I help?",
+        "user_ride_change_ask_ride_change": "I would like to change my ride",
+        "ask_name": "Could you give me your name, please?",
+        "user_ride_change_inform_name": "My name is [NAME]",
+        "ride_ask_booking_number": "Can I get your booking ID, please?",
+        "user_ride_change_inform_id": "My booking ID is [NUMBER]",
+        "ride_ask_change": "Sure, what can I change for you?",
+        "user_ride_change_ask_change": "I would like to change [MESSAGE]",
+        "query": "[QUERY]",
+        "db_ride_inform_changes_successful": "[RESULT] APIName = ride_change ; ChangeStatus = Your trip has been successfully changed. ; ",
+        "ride_inform_changes_successful": "Alright, thats all changes done for you!",
+        "db_ride_inform_changes_failed": "[RESULT] APIName = ride_change ; ChangeStatus = We are unable to change your trip. ; ",
+        "ride_inform_changes_failed": "Unfortunately I wasn't able to update your booking, sorry.",
+        "user_ride_change_thanks": "Thanks",
+        "anything_else": "Is there anything else that I can do for you?",
+        "user_ride_change_goodbye": "Goodbye",
+        "ride_bye": "Goodbye. Enjoy your ride!",
+        "ride_inform_nothing_found": "Unfortunately there are currently no rides available that match your search. Would you like to change any of your criteria?",
+        "out_of_scope": "I am sorry, I don't quite understand what you mean. I am only able to help you to change or cancel your ride."
+    },
+    "graph": {
+        "user_hello": "hello",
+        "user_ride_change_ask_ride_change": "ask_name",
+        "user_ride_change_inform_name": "ride_ask_booking_number",
+        "user_ride_change_inform_id": "ride_ask_change",
+        "user_ride_change_ask_change": "query",
+        "db_ride_inform_changes_successful": "ride_inform_changes_successful",
+        "db_ride_inform_changes_failed": "ride_inform_changes_failed",
+        "user_ride_change_thanks": "anything_else",
+        "user_ride_change_goodbye": "ride_bye"
+    },
+    "r_graph": {
+        "user_ride_change_ask_ride_change": "hello",
+        "user_ride_change_inform_name": "ask_name",
+        "user_ride_change_inform_id": "ride_ask_booking_number",
+        "user_ride_change_ask_change": "ride_ask_change",
+        "user_ride_change_thanks": "ride_inform_changes_successful",
+        "user_ride_change_goodbye": "anything_else",
+        "db_ride_inform_changes_successful": "query",
+        "db_ride_inform_changes_failed": "query"
+    }
+}

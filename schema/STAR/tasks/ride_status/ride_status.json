@@ -1,0 +1,40 @@
+{
+    "task": "ride_status",
+    "replies": {
+        "user_hello": "Hello",
+        "hello": "Hello, how can I help?",
+        "user_ride_status_ask_ride_status": "I'd like to find out the status of my ride",
+        "ask_name": "May I have your name, please?",
+        "user_ride_status_inform_name": "My name is [NAME]",
+        "ride_ask_booking_number": "Could you provide your booking ID, please?",
+        "user_ride_status_inform_id": "My ride ID is [NUMBER]",
+        "user_ride_status_inform_name_id": "i'm [NAME], my ride id is [NUMBER]",
+        "query": "[QUERY]",
+        "db_ride_provide_booking_status": "[RESULT] APIName = ride_status ; RideStatus = Your ride is on its way. ; RideWait = [NUMBER] minutes away ; ",
+        "ride_provide_booking_status": "Your driver will be with you in about {minutes_till_pickup:d} minutes.",
+        "user_ride_status_thanks": "Thanks",
+        "anything_else": "Is there anything else that I can do for you?",
+        "user_ride_status_goodbye": "Goodbye",
+        "ride_bye": "Goodbye. Enjoy your ride!",
+        "ride_inform_nothing_found": "Unfortunately I cannot find your ride. Please check your name and booking ID.",
+        "out_of_scope": "I am sorry, I don't quite understand what you mean. I am only able to help you check that status of your ride."
+    },
+    "graph": {
+        "user_hello": "hello",
+        "user_ride_status_ask_ride_status": "ask_name",
+        "user_ride_status_inform_name": "ride_ask_booking_number",
+        "user_ride_status_inform_id": "query",
+        "user_ride_status_inform_name_id": "query",
+        "db_ride_provide_booking_status": "ride_provide_booking_status",
+        "user_ride_status_thanks": "anything_else",
+        "user_ride_status_goodbye": "ride_bye"
+    },
+    "r_graph": {
+        "user_ride_status_ask_ride_status": "hello",
+        "user_ride_status_inform_name": "ask_name",
+        "user_ride_status_inform_id": "ride_ask_booking_number",
+        "user_ride_status_thanks": "ride_provide_booking_status",
+        "user_ride_status_goodbye": "anything_else",
+        "db_ride_provide_booking_status": "query"
+    }
+}

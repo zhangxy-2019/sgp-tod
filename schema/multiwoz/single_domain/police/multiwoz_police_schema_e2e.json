@@ -1,0 +1,29 @@
+{
+    "task": "police",
+    "belief_instructions": "belief instructions: police none",
+    "replies": {
+        "user_nomore": "user : nope, that covers all my needs. thank you.",
+        "system_general_bye": "police (general (bye)) system :  okay , thank you for calling the [value_place] towninfo [value_area].",
+        "user_bye": "user : thank you. good bye.",
+        "system_bye": "police (general (bye)) system: you are welcome, goodbye!",
+        "user_thank": "user : thank you very much!",
+        "system_require_more": "police (general (bye), require (more)) system : you are welcome. is there anything else i can help you with ?",
+        "user_ask_police": "user : hello, i have been robbed. can you please help me get in touch with the police?",
+        "system_inform_police_name_address_phone": "police (inform (name, address, postcode, phone), require (more)) system : [police_name] is in [police_address], postcode [police_postcode]. their number is [police_phone] . anything else i can do for you ?",
+        "user_req_police_postcode": "user : can i please have the postcode of the police station?",
+        "system_inform_police_name_postcode": "police (inform (name, postcode), require (more)) system : the postcode for the [police_name] is [police_postcode]. can i help you with anything else ?",
+        "user_req_police_address_postcode_phone": "user : i need the address including postcode of the police station and also the phone number.",
+        "system_inform_police_address_postcode_phone": "police (inform (address, postcode, phone)) system : of course . their address is [police_address] postcode [police_postcode] and phone number is [police_phone].",
+        "user_req_address": "user : can you tell me the address to the police station?",
+        "system_inform_address_postcode": "police (inform (address, postcode)) system : the address is [police_address] , postcode [police_postcode]"
+    }, 
+    "graph": {
+        "user_ask_police": "system_inform_police_name_address_phone",
+        "user_req_police_postcode": "system_inform_police_name_postcode",
+        "user_req_address": "system_inform_address_postcode",
+        "user_req_police_address_postcode_phone": "system_inform_police_address_postcode_phone",
+        "user_thank": "system_require_more",
+        "user_no_more": "system_general_bye",
+        "user_bye": "system_bye"
+    }
+}

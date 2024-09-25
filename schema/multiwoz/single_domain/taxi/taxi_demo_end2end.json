@@ -1,0 +1,35 @@
+[
+  {
+    "task": "attraction",
+    "belief_instructions": "belief instructions: attraction type = swimmingpool, theatre, architecture, museum, nightclub, boat, park, college, concerthall, entertainment, multiple sports, cinema; name = the cherry hinton village centre, soul tree nightclub, etc.; area = dont care, centre, east, north, south, west",
+    "new_rule": "task rules: (1) user: i'm looking for information on [attraction_name]. action: attraction (inform (name, address, area, entrance fee)) system: [attraction_name] is in the [value_area] and their address is [attraction_address], the entrance fee is [value_count] pounds. [eos] (2) user: what is the phone number? action: attraction (inform (phone), require (more)) system: their phone number is [attraction_phone]. is there anything else i can do for you? [eos] (3) user: i need the area/location and the postcode. action: attraction (inform (area, postcode)) system: the [attraction_name] is in the [value_area], their postal code is [attraction_postcode] [eos] (4) user: that is all i need today. thank you! action: attraction (general (bye)) system: you are welcome , thank you for calling the [value_place] towninfo [value_area]. have a great day.[eos] (5) user: thank you, goodbye. action: attraction (general (bye)) system: you are welcome. goodbye.[eos]",
+    "history": [
+      "user : hello, i'm looking for the museum of classical archaeology, could you tell me more about it?",
+      "system : certainly , the [attraction_name] is located at [attraction_address] and has free entrance , phone [attraction_phone] . do you also need the postcode ?",
+      "user : yes, i'd like that. thank you so much!",
+      "system : the postcode for the [attraction_name] is [attraction_postcode] . is there anything else i can help you with ?",
+      "user : no, you've been very helpful.  thank you.  bye."
+    ],
+    "kb": "<kb> attraction one </kb>",
+    "belief": "SQL: select * from attraction where name = museum of classical archaeology",
+    "explanation_1": "action: attraction (general (bye))",
+    "reply": "system : you are welcome. goodbye.",
+    "name": "sng1097.json",
+    "dp": "<dp>general ( reqmore ( none = none ) )"
+  },
+  {
+    "task": "train",
+    "belief_instructions": "belief instructions: taxi leaveat = 08:45, 16:15, etc. ; destination = saint john's college, kettle's yard, galleria, etc. ; departure = huntingdon marriott taxi, cineworld cinema, bridge guest house, etc. ; arriveby = 17:15, 17:30, etc.",
+    "new_rule": "(1) user : i need a train from [value_place]. action: train (request (destination, day, leaveat)) system : where are you headed , and what day and time did you need to leave ?[eos] (2) user: i would like to leave [value_place] and arrive by [value_time]. action: train (inform (choices), request (day, leaveat)) system : there are [value_count] trains making that trip, do you have a day you would like to travel? where are you departing from?[eos] (3) user: i am leaving from [value_place] at [value_time] [value_day] and i want to arrive by [value_time]. action: train (inform (id, departure, leaveat, destination, arriveby), require (more)) system : i have train [train_id] that leaves [value_place] at [value_time] and gets to [value_place] at [value_time]. would that train work for you? [eos] (4) user : i will need to be on that train. action: train (request (people)) system : okay , how many tickets would you like? [eos]",
+    "history": [
+      "user : i am looking for a train leaving peterborough arriving by 8:30",
+      "system : there are [value_count] trains do you have a destination and day ?",
+      "user : yes, i'm headed to cambridge on wednesday."
+    ],
+    "belief": "SQL: select * from train where destination = cambridge ; day = wednesday ; arriveby = 08:30 ; departure = peterborough",
+    "reply": "system : [train_id] leaves at [value_time] and will arrive at [value_time] . would you like me to book it ?",
+    "name": "SNG0434.json",
+    "dp": "dp : train ( inform ( arrive = 8:09 , leave = 7:19 , id = tr8935 ) ; offerbook ( none = none ) )",
+    "explanation_1": "action: taxi (inform (id, leaveat, arriveby), require (booking))"
+  }
+]

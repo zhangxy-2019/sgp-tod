@@ -1,0 +1,52 @@
+{
+    "task": "spaceship_access_codes",
+    "replies": {
+        "user_hello": "Hello.",
+        "hello": "Hello, how can I help?",
+        "user_spaceshipcodes_ask_access": "I need to get into the combat deck",
+        "ask_name": "Please provide your name.",
+        "user_spaceshipcodes_inform_name": "My name is [NAME]",
+        "spaceship_ask_rank": "Please provide your rank.",
+        "user_spaceshipcodes_inform_rank": "My rank is [RANK]",
+        "spaceship_ask_code": "Please enter the code.",
+        "user_spaceshipcodes_inform_code": "[NUMBER]",
+        "spaceship_ask_code_type": "Please specify the code type.",
+        "user_spaceshipcodes_inform_codetype_access": "It's an access code",
+        "user_spaceshipcodes_inform_codetype_clearance": "It's a clearance code",
+        "query": "[QUERY]",
+        "db_spaceshipcodes_inform_outcome_neg": "[RESULT] APIName = spaceship_access_codes ; Message = Sorry, you are not authorized to unlock the door. Please obtain a clearance code from the Captain. ; ",
+        "db_spaceshipcodes_inform_outcome_pos": "[RESULT] APIName = spaceship_access_codes ; Message = The door is now unlocked. ; ",
+        "spaceship_inform_outcome": "{message:s}",
+        "spaceship_inform_nothing_found": "Unfortunately there are no actions on the that match your search.",
+        "user_spaceshipcodes_thanks": "Thanks",
+        "anything_else": "Is there anything else that I can do for you?",
+        "user_spaceshipcodes_goodbye": "Goodbye",
+        "spaceship_bye": "Goodbye.",
+        "out_of_scope": "I am sorry, I don't quite understand what you mean. I am only able to help you with the access codes of the spaceship."
+    },
+    "graph": {
+        "user_hello": "hello",
+        "user_spaceshipcodes_ask_access": "ask_name",
+        "user_spaceshipcodes_inform_name": "spaceship_ask_rank",
+        "user_spaceshipcodes_inform_rank": "spaceship_ask_code",
+        "user_spaceshipcodes_inform_code": "spaceship_ask_code_type",
+        "user_spaceshipcodes_inform_codetype_access": "query",
+        "user_spaceshipcodes_inform_codetype_clearance": "query",
+        "db_spaceshipcodes_inform_outcome_pos": "spaceship_inform_outcome",
+        "db_spaceshipcodes_inform_outcome_neg": "spaceship_inform_outcome",
+        "user_spaceshipcodes_thanks": "anything_else",
+        "user_spaceshipcodes_goodbye": "spaceship_bye"
+    },
+    "r_graph": {
+        "user_spaceshipcodes_ask_access": "hello",
+        "user_spaceshipcodes_inform_name": "ask_name",
+        "user_spaceshipcodes_inform_rank": "spaceship_ask_rank",
+        "user_spaceshipcodes_inform_code": "spaceship_ask_code",
+        "user_spaceshipcodes_inform_codetype_access": "spaceship_ask_code_type",
+        "user_spaceshipcodes_inform_codetype_clearance": "spaceship_ask_code_type",
+        "user_spaceshipcodes_thanks": "spaceship_inform_outcome",
+        "user_spaceshipcodes_goodbye": "anything_else",
+        "db_spaceshipcodes_inform_outcome_neg": "query",
+        "db_spaceshipcodes_inform_outcome_pos": "query"
+    }
+}

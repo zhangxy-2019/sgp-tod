@@ -1,0 +1,35 @@
+[
+  {
+    "task": "taxi",
+    "belief_instructions": "belief instructions: taxi leaveat = 08:45, 16:15, etc. ; destination = saint john's college, kettle's yard, galleria, etc. ; departure = huntingdon marriott hotel, cineworld cinema, bridge guest house, etc. ; arriveby = 17:15, 17:30, etc. ; booking_people = 1,2,3,4,5,6,7, etc.",
+    "new_rule": "(1) user: i need a taxi from the [value_place] by [value_time] to arrive at [value_place], please. action: taxi (inform (type, departure, leaveat, destination), require (more)) system : okay . i have booked a taxi [taxi_type] to pick you up at [value_place] by [value_time] and take you to [value_place]. is there anything else i can help you with today ? [eos] (2) user : it would be nice if you would tell me it's contact number. action: taxi (inform (phone), require (more)) system : their contact number is [taxi_phone]. would you like more information ? [eos] (3) user: thanks so much. that's all i need. bye. action: taxi( general (bye)) system : you are welcome . have a safe trip ! [eos]",
+    "history": [
+      "user : yes, could you book a taxi for me?  i'd like to leave the gonville hotel by 24:00, going to all saints church.",
+      "system : sure , i have booked a [taxi_type] for you . its contact number is [taxi_phone] .",
+      "user : thank you, you have been very helpful. i think that is all i need."
+    ],
+    "kb": "<kb> hotel one </kb>",
+    "belief": "SQL: select * from taxi leaveat = 24:00 ; destination = all saints church ; departure = gonville hotel ; booking_people = 1",
+    "explanation_1": "action: taxi (general (bye))",
+    "reply": "system : you are welcome , enjoy the church . goodbye .",
+    "name": "sng0863.json",
+    "dp": "<dp>hotel ( inform ( area = west part of town , name = hobsons house , internet = none , price = moderately priced , parking = none , type = guesthouse , stars = 3 ) )"
+  },
+  {
+    "task": "restaurant",
+    "belief_instructions": "belief instructions: restaurant name = pizza hut city, golden wok, etc.; food = dont care, chinese, mediterranean, british, etc.; pricerange = dontcare, cheap, moderate, expensive; area = dont care, centre, east, north, south, west ; booking_day = monday, tuesday, wednesday, thursday, friday, saturday, sunday; booking_time = 12:15, 13:30, etc. ; booking_people = 1,2,3,4,5,6,7, etc.",
+    "new_rule": "task rules: (1) user: i'm looking for a restaurant that offers [value_food] food in a [value_price] price range. action: restaurant (inform (choices), require(area)) system : i have over [value_count] restaurant -s to choose from , do you have a prefered area in mind? [eos] (2) user: i need a restaurant that serves [value_food] in the [value_pricerange] on the [value_area] side of town. action: restaurant (inform (name, food, price, area)) system : how about [restaurant_name] ? it serves [value_food] food in the [value_pricerange] price range in the [value_area]. [eos] (3) user : can you book the table for [value_count] people at [value_time] on [value_day] please? action: restaurant (booking (name, day, time), inform (reference)) system : i have made a reservation for you at the [restaurant_name] on [value_day] at [value_time] for [value_count] people. your reference number is [restaurant_reference]. [eos] (4) user: that covers all my needs. thanks. action: restaurant (general (bye)) system: you are welcome, goodbye. [eos]",
+    "history": [
+      "user : i am looking for a restaurant in the moderate price range serving modern european food.",
+      "system : i have at least [value_count] choices would you like a recommendation ?",
+      "user : i'd like a restaurant on the south end of town, please.",
+      "system : how does [restaurant_name] sound ? they are on the [value_area] side of town .",
+      "user : that sounds good, can i book a table for 3 people there at 12:30 on wednesday?"
+    ],
+    "belief": "SQL: select * from restaurant where food = modern european ; pricerange = moderate ; area = south ; booking_day = wednesday ; booking_time = 12:30 ; booking_people = 3",
+    "explanation_1": "action: restaurant (booking (name, time, day), inform (reference), require (more))",
+    "reply": "system : your reservation at [restaurant_name] has been made for [value_time] on [value_day] and your reference number is [restaurant_reference] . is there anything else i can help you with ?",
+    "name": "SNG0662.json",
+    "dp": "dp : general ( reqmore ( none = none ) )"
+  }
+]

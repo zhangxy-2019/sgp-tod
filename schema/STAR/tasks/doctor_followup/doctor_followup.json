@@ -1,0 +1,38 @@
+{
+    "task": "doctor_followup",
+    "replies": {
+        "user_hello": "Hello.",
+        "hello": "Hello, how can I help?",
+        "user_doctor_ask_followup": "I'd like to follow up on my doctors appointment",
+        "ask_name": "Could I get your name, please?",
+        "user_doctor_inform_name": "My name is [NAME]",
+        "doctor_ask_doctor_name": "Who is your doctor?",
+        "user_doctor_inform_doctor_name": "My doctor's name is [NAME]",
+        "query": "[QUERY]",
+        "db_doctor_inform_doctors_instructions": "[RESULT] APIName = doctor_followup ; Message = [MESSAGE] ; ",
+        "doctor_inform_doctors_instructions": "Your instructions are: {instructions:s}.",
+        "user_doctor_thanks": "Ok, thank you",
+        "anything_else": "Is there anything else that I can do for you?",
+        "user_doctor_nothing_else": "No, nothing else.",
+        "goodbye_1": "Thank you and goodbye.",
+        "doctor_inform_nothing_found": "Unfortunately there is currently no doctor available.",
+        "out_of_scope": "I am sorry, I don't quite understand what you mean. I am only able to help schedule a followup appointment with your doctor."
+    },
+    "graph": {
+        "user_hello": "hello",
+        "user_doctor_ask_followup": "ask_name",
+        "user_doctor_inform_name": "doctor_ask_doctor_name",
+        "user_doctor_inform_doctor_name": "query",
+        "db_doctor_inform_doctors_instructions": "doctor_inform_doctors_instructions",
+        "user_doctor_thanks": "anything_else",
+        "user_doctor_nothing_else": "goodbye_1"
+    },
+    "r_graph": {
+        "user_doctor_ask_followup": "hello",
+        "user_doctor_inform_name": "ask_name",
+        "user_doctor_inform_doctor_name": "doctor_ask_doctor_name",
+        "user_doctor_thanks": "doctor_inform_doctors_instructions",
+        "user_doctor_nothing_else": "anything_else",
+        "db_doctor_inform_doctors_instructions": "query"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "task": "weather",
+    "replies": {
+        "user_hello": "Hello.",
+        "hello": "Hello, how can I help?",
+        "user_weather_ask_weather": "What is the weather like?",
+        "weather_ask_day": "For what day would you like the weather forecast?",
+        "user_weather_inform_day": "On [DAY_OF_WEEK]",
+        "weather_ask_location": "For what location would you like the weather forecast?",
+        "user_weather_inform_city": "[CITY]",
+        "query": "[QUERY]",
+        "db_inform_forecast": "[RESULT] APIName = weather ; City = [CITY] ; Day = [DAY_OF_WEEK] ; TemperatureCelsius = [NUMBER] ; Weather = [WEATHER]; id = [NUMBER] ; ",
+        "weather_inform_forecast": "It will be {weather:s} all day on {day:s} in {city:s}, with temperatures of around {temperature:d} degrees celsius.",
+        "user_weather_thanks": "Thanks",
+        "anything_else": "Is there anything else that I can do for you?",
+        "user_weather_goodbye": "Goodbye",
+        "goodbye_1": "Thank you and goodbye.",
+        "weather_inform_nothing_found": "Unfortunately there are no forecasts that match your search. Would you like to change any of your criteria?",
+        "out_of_scope": "I am sorry, I don't quite understand what you mean. I am only able to tell you the weather."
+    },
+    "graph": {
+        "user_hello": "hello",
+        "user_weather_ask_weather": "weather_ask_day",
+        "user_weather_inform_day": "weather_ask_location",
+        "user_weather_inform_city": "query",
+        "db_inform_forecast": "weather_inform_forecast",
+        "user_weather_thanks": "anything_else",
+        "user_weather_goodbye": "goodbye_1"
+    },
+    "r_graph": {
+        "user_weather_ask_weather": "hello",
+        "user_weather_inform_day": "weather_ask_day",
+        "user_weather_inform_city": "weather_ask_location",
+        "user_weather_thanks": "weather_inform_forecast",
+        "user_weather_goodbye": "anything_else",
+        "db_inform_forecast": "query"
+    }
+}

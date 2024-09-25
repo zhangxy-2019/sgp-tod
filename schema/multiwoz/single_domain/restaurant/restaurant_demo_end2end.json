@@ -1,0 +1,39 @@
+[
+  {
+    "task": "attraction",
+    "belief_instructions": "belief instructions: attraction type = swimmingpool, theatre, architecture, museum, nightclub, boat, park, college, concerthall, entertainment, multiple sports, cinema; name = the cherry hinton village centre, soul tree nightclub, etc.; area = dont care, centre, east, north, south, west",
+    "new_rule": "task rules: (1) user: i'm looking for information on [attraction_name]. action: attraction (inform (name, address, area, entrance fee)) system: [attraction_name] is in the [value_area] and their address is [attraction_address], the entrance fee is [value_count] pounds. [eos] (2) user: what is the phone number? action: attraction (inform (phone), require (more)) system: their phone number is [attraction_phone]. is there anything else i can do for you? [eos] (3) user: i need the area/location and the postcode. action: attraction (inform (area, postcode)) system: the [attraction_name] is in the [value_area], their postal code is [attraction_postcode] [eos] (4) user: that is all i need today. thank you! action: attraction (general (bye)) system: you are welcome , thank you for calling the [value_place] towninfo [value_area]. have a great day. [eos]",
+    "history": [
+      "user : hello, i'm looking for the museum of classical archaeology, could you tell me more about it?",
+      "system : certainly , the [attraction_name] is located at [attraction_address] and has free entrance , phone [attraction_phone] . do you also need the postcode ?",
+      "user : yes, i'd like that. thank you so much!"
+    ],
+    "kb": "<kb> attraction one </kb>",
+    "belief": "SQL: select * from attraction where name = museum of classical archaeology",
+    "explanation_1": "action: attraction (inform (postcode), require (more))",
+    "reply": "system : the postcode for the [attraction_name] is [attraction_postcode] . is there anything else i can help you with ?",
+    "name": "sng1097.json",
+    "dp": "<dp>general ( reqmore ( none = none ) )"
+  },
+  {
+    "task": "hotel",
+    "belief_instructions": "belief instructions: hotel name = huntingdon marriott hotel, a and b guest house, etc.; pricerange = dont care, cheap, moderate, expensive; area = dont care, centre, east, north, south, west; stars = dont care, 0,1,2,3,4,5; parking = dont care, yes, no; internet = dont care, yes, no; type = hotel, guest house ; booking_day = monday, tuesday, etc.; booking_people = 1,2,3,4,5,6,etc. ; booking_stay = 1,2,3,4,etc.",
+    "rule": "user: i want some information on the [hotel_name] please. system : the [hotel_name] is an [value_pricerange] hotel in the [value_area] with internet and parking . would you like me to make a booking ?",
+    "new_rule": "(1) user: i am looking for a guesthouse/hotel. action: hotel (request (area)) system: what area of town would you like to stay ?[eos] (2) user: i want information on [hotel_name]. action: action: hotel(inform(name, type, area, price, internet, parking, stars), require(more)) system : [hotel_name] is a guesthouse/hotel in the [value_area] part of town , it is [value_pricerange] -ly priced with [value_count] stars , internet and parking . would you like more information ? [eos] (3) user: i need rooms for [value_count] people for [value_count] nights, starting [value_day]. action: hotel(booking(name), inform(reference), require (more)) system : you are booked at [hotel_name] with reference number [hotel_reference] . may i help with anything else ? [eos] (4) user: that's all, thanks for your help. action: hotel (general(bye)) system : okay great. enjoy your stay. [eos]",
+    "history": [
+      "user : i need a place to stay that is a guesthouse.",
+      "system : of course , in which area of town will you be staying ?",
+      "user : i want it in the west, and it should be moderately priced.",
+      "system : there are [value_count] in the [value_area] all of them have free parking and internet . would you like me to book a room ?",
+      "user : yes, please book one for 4 people and 3 nights starting from wednesday. i will need the reference number also.",
+      "system : you are booked at the [hotel_name] , ref# [hotel_reference] . is there anything else i can help you with today ?",
+      "user : that would be all thank you very much."
+    ],
+    "kb": "<kb> hotel one </kb>",
+    "belief": "SQL: select * from hotel area = south ; type = guesthouse ; booking_day = wednesday ; booking_people = 4 ; booking_stay = 3 ",
+    "explanation_1": "action: hotel (general(bye))",
+    "reply": "system : you are welcome and enjoy your stay ",
+    "name": "sng0863.json",
+    "dp": "<dp>hotel ( inform ( area = west part of town , name = hobsons house , internet = none , price = moderately priced , parking = none , type = guesthouse , stars = 3 ) )"
+  }
+]
