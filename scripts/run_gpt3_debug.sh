@@ -1,0 +1,2 @@
+#!/bin/bash
+python3 -u run_gpt3_experiment_debug.py --data_path STAR/dialogues/ --schema_path STAR/tasks/ --num_tasks 25 --output_dir ./expts/run_gpt3_task_transfer --task_train task-transfer --num_examples 2 --use_schema >gpt3_task_transfer_example_2

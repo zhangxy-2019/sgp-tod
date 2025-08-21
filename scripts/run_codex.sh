@@ -1,0 +1,2 @@
+#!/bin/bash
+python3 -u run_codex_experiment.py --data_path STAR/dialogues/ --schema_path STAR/tasks/ --num_tasks 30 --output_dir ./expts/run_codex_domain_initial --task_train domain-transfer --use_schema >codex_domain_initial

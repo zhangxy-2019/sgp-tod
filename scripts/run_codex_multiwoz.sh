@@ -1,0 +1,2 @@
+#!/bin/bash
+python3 -u run_codex_multiwoz.py --data_path /data/xyzhang/RL_research_folder/soloist-rl/soloist-cuhk/examples/multiwoz/data/standard/train/train198.test.soloist.json --schema_path ./examples/multiwoz/data/standard/train/multiwoz_train_schema_e2e.json --num_tasks 25 --output_dir ./expts/run_codex_multiwoz_train --task_train task-transfer --num_examples 1 --use_schema >codex_multiwoz_train

@@ -1,0 +1,2 @@
+#!/bin/bash
+python3 -u run_codex_experiment_debug.py --data_path STAR/dialogues/ --schema_path STAR/tasks/ --num_tasks 25 --output_dir ./expts/run_codex_task_transfer_noexample --task_train task-transfer --num_examples 0 --use_schema >codex_task_transfer_noexample
